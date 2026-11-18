@@ -4,7 +4,6 @@ import Navbar from './components/Navbar.jsx'
 import SearchFilter from './components/SearchFilter.jsx'
 import MenuList from './components/MenuList.jsx'
 import Cart from './components/Cart.jsx'
-import Footer from './components/Footer.jsx'
 
 function App() {
   // state: 6 state utama aplikasi disimpan di App.jsx menggunakan useState
@@ -126,16 +125,15 @@ function App() {
         {/* Section Beranda (Hero) */}
         <section id="beranda" className="hero-section">
           <div className="container hero-inner">
-            <span className="hero-badge">🍞 Hangat &amp; Nikmat Setiap Hari ☕</span>
+            <span className="hero-badge">✨ Fresh Bakes &amp; Specialty Brews ☕</span>
             <h1>Kedai Bakar &amp; Seduh</h1>
             <p>
-              Tempat nongkrong hangat dengan sajian roti bakar renyah, kopi
-              seduhan segar, dan aneka camilan favorit teman diskusi maupun
-              nugas.
+              Spot nongkrong aesthetic buat chill, nugas, dan ngobrol santai.
+              Roti bakar crispy dengan topping melimpah &amp; seduhan kopi creamy favoritmu.
             </p>
             <div className="hero-cta">
               <a href="#menu" className="btn btn-primary hero-link">
-                Lihat Katalog Menu
+                Eksplor Menu 🚀
               </a>
               <span className="hero-stat">
                 ❤️ Disukai: <strong>{favorit.length}</strong> menu
@@ -195,49 +193,7 @@ function App() {
             />
           </div>
         </section>
-
-        {/* Section Tentang */}
-        <section id="tentang" className="section-block">
-          <div className="container">
-            <div className="about-card">
-              <div className="about-info">
-                <h2>Tentang Kedai Bakar &amp; Seduh</h2>
-                <p>
-                  <strong>Kedai Bakar &amp; Seduh</strong> adalah kedai roti bakar
-                  dan kopi fiktif yang menghadirkan suasana santai dengan menu
-                  andalan roti panggang klasik, kopi susu gula aren, serta
-                  camilan hangat yang ramah di kantong mahasiswa.
-                </p>
-                <p>
-                  Aplikasi katalog menu interaktif ini dikembangkan menggunakan
-                  React dan Vite untuk memenuhi tugas mata kuliah{' '}
-                  <em>Component-Based UI Development</em>.
-                </p>
-              </div>
-
-              <div className="about-profile">
-                <h3>Identitas Pengembang</h3>
-                <ul>
-                  <li>
-                    <span>Nama:</span> <strong>Reyvianti Shafira</strong>
-                  </li>
-                  <li>
-                    <span>NIM:</span> <strong>1247050021</strong>
-                  </li>
-                  <li>
-                    <span>Program Studi:</span>{' '}
-                    <strong>
-                      Teknik Informatika, UIN Sunan Gunung Djati Bandung
-                    </strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
-
-      <Footer />
     </div>
   )
 }

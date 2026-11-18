@@ -20,7 +20,6 @@ function Navbar({ jumlahKeranjang }) {
             Keranjang
             <span className="cart-badge">{jumlahKeranjang}</span>
           </a>
-          <a href="#tentang">Tentang</a>
         </nav>
       </div>
     </header>
