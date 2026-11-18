@@ -1,25 +1,45 @@
 // Komponen Navbar untuk navigasi halaman dan identitas mahasiswa
-// props: menerima jumlahKeranjang dari App.jsx
-function Navbar({ jumlahKeranjang }) {
+// props: menerima jumlahKeranjang, halamanAktif, dan onGantiHalaman dari App.jsx
+function Navbar({ jumlahKeranjang, halamanAktif, onGantiHalaman }) {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
         <div className="navbar-brand">
-          <a href="#beranda" className="brand-title">
+          <button
+            type="button"
+            className="brand-title brand-button"
+            onClick={() => onGantiHalaman('beranda')}
+          >
             🍞 Kedai Bakar &amp; Seduh
-          </a>
+          </button>
           <span className="brand-student">
             Reyvianti Shafira &bull; 1247050021
           </span>
         </div>
 
         <nav className="navbar-links" aria-label="Navigasi Utama">
-          <a href="#beranda">Beranda</a>
-          <a href="#menu">Menu</a>
-          <a href="#keranjang" className="nav-cart-link">
+          <button
+            type="button"
+            className={`nav-btn ${halamanAktif === 'beranda' ? 'active' : ''}`}
+            onClick={() => onGantiHalaman('beranda')}
+          >
+            Beranda
+          </button>
+          <button
+            type="button"
+            className={`nav-btn ${halamanAktif === 'menu' ? 'active' : ''}`}
+            onClick={() => onGantiHalaman('menu')}
+          >
+            Menu
+          </button>
+          <button
+            type="button"
+            className={`nav-btn nav-cart-btn ${halamanAktif === 'keranjang' ? 'active' : ''}`}
+            onClick={() => onGantiHalaman('keranjang')}
+          >
             Keranjang
             <span className="cart-badge">{jumlahKeranjang}</span>
-          </a>
+          </button>
         </nav>
       </div>
     </header>

@@ -108,6 +108,14 @@ main {
   gap: 8px;
 }
 
+.brand-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 .brand-title {
   font-size: 1.2rem;
   font-weight: 800;
@@ -117,6 +125,11 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  transition: transform 0.15s ease;
+}
+
+.brand-title:hover {
+  transform: scale(1.02);
 }
 
 .brand-student {
@@ -139,12 +152,15 @@ main {
   gap: 6px;
 }
 
-.navbar-links a {
-  text-decoration: none;
+.nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
   color: var(--text-main);
   font-weight: 600;
   font-size: 0.92rem;
-  padding: 8px 14px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 8px 16px;
   min-height: 40px;
   display: inline-flex;
   align-items: center;
@@ -152,14 +168,27 @@ main {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navbar-links a:hover {
+.nav-btn:hover {
   background-color: var(--bg-subtle);
   color: var(--accent-primary);
 }
 
-.nav-cart-link {
+.nav-btn.active {
+  background-color: var(--text-main);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(24, 24, 27, 0.2);
+}
+
+.nav-cart-btn {
   gap: 8px;
   background-color: var(--bg-subtle);
+  border-color: var(--border-light);
+}
+
+.nav-cart-btn.active {
+  background: var(--text-main);
+  color: #ffffff;
 }
 
 .cart-badge {
@@ -186,7 +215,7 @@ main {
 }
 
 /* ========================================================
-   HERO / BERANDA (Aesthetic Gen Z Gradient Dark Aura)
+   HERO / BERANDA
    ======================================================== */
 .hero-section {
   position: relative;
@@ -194,7 +223,7 @@ main {
               radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
               linear-gradient(135deg, #18181b 0%, #221c17 50%, #151311 100%);
   color: #ffffff;
-  padding: 56px 0;
+  padding: 64px 0 56px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
@@ -223,7 +252,7 @@ main {
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   margin: 0 0 12px;
   letter-spacing: -0.03em;
@@ -250,12 +279,12 @@ main {
 }
 
 .hero-link {
-  text-decoration: none;
   background: var(--accent-gradient) !important;
   color: #ffffff !important;
   box-shadow: var(--accent-glow) !important;
   border-radius: var(--radius-full) !important;
-  padding: 10px 22px !important;
+  padding: 12px 26px !important;
+  font-size: 1rem !important;
 }
 
 .hero-link:hover {
@@ -267,38 +296,134 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(8px);
-  padding: 8px 16px;
-  min-height: 42px;
+  padding: 8px 18px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   border-radius: var(--radius-full);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #f4f4f5;
+}
+
+/* Beranda Highlights Grid */
+.beranda-highlights {
+  padding-top: 40px;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 720px) {
+  .highlight-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.highlight-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.highlight-icon {
+  font-size: 2.4rem;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-emoji);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border: 1px solid #fcefe2;
+}
+
+.highlight-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.highlight-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.beranda-cta-banner {
+  margin-top: 32px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1.5px solid #fed7aa;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (min-width: 680px) {
+  .beranda-cta-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cta-banner-text h3 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #9a3412;
+}
+
+.cta-banner-text p {
+  margin: 0;
+  color: #7c2d12;
+  font-size: 0.95rem;
 }
 
 /* ========================================================
    SECTION LAYOUT
    ======================================================== */
 .section-block {
-  padding: 44px 0;
-  scroll-margin-top: 84px;
-}
-
-.section-alt {
-  background-color: #f5f1eb;
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+  padding: 40px 0;
 }
 
 .section-header {
   margin-bottom: 24px;
 }
 
+.section-header-with-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.btn-to-cart {
+  border-radius: var(--radius-full);
+}
+
 .section-header h2 {
   margin: 0 0 6px;
-  font-size: 1.7rem;
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-main);
@@ -311,7 +436,7 @@ main {
 }
 
 /* ========================================================
-   SEARCH & FILTER (Clean Floating Box)
+   SEARCH & FILTER
    ======================================================== */
 .search-filter {
   background-color: var(--bg-surface);
@@ -368,7 +493,7 @@ main {
 }
 
 /* ========================================================
-   MENU GRID & CARDS (Gen Z Card Layout)
+   MENU GRID & CARDS
    ======================================================== */
 .menu-grid {
   display: grid;
@@ -566,11 +691,11 @@ main {
 }
 
 /* ========================================================
-   BUTTONS (Modern Pill / Rounded Shapes)
+   BUTTONS
    ======================================================== */
 .btn {
   min-height: 44px;
-  padding: 9px 16px;
+  padding: 9px 18px;
   border-radius: var(--radius-md);
   font-size: 0.92rem;
   font-weight: 700;
@@ -768,6 +893,12 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-total-box {
+  display: flex;
+  align-items: baseline;
   gap: 10px;
   font-size: 1.1rem;
   font-weight: 700;

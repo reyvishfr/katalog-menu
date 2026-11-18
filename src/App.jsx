@@ -6,7 +6,8 @@ import MenuList from './components/MenuList.jsx'
 import Cart from './components/Cart.jsx'
 
 function App() {
-  // state: 6 state utama aplikasi disimpan di App.jsx menggunakan useState
+  // state: pengelolaan state utama aplikasi di App.jsx menggunakan useState
+  const [halamanAktif, setHalamanAktif] = useState('beranda') // 'beranda' | 'menu' | 'keranjang'
   const [keyword, setKeyword] = useState('')
   const [kategoriAktif, setKategoriAktif] = useState('Semua')
   const [urutan, setUrutan] = useState('default')
@@ -118,81 +119,144 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      {/* props: mengirim jumlahKeranjang ke komponen Navbar */}
-      <Navbar jumlahKeranjang={jumlahItemKeranjang} />
+      {/* props: mengirim jumlahKeranjang, halamanAktif, dan onGantiHalaman ke Navbar */}
+      <Navbar
+        jumlahKeranjang={jumlahItemKeranjang}
+        halamanAktif={halamanAktif}
+        onGantiHalaman={setHalamanAktif}
+      />
 
       <main>
-        {/* Section Beranda (Hero) */}
-        <section id="beranda" className="hero-section">
-          <div className="container hero-inner">
-            <span className="hero-badge">✨ Fresh Bakes &amp; Specialty Brews ☕</span>
-            <h1>Kedai Bakar &amp; Seduh</h1>
-            <p>
-              Spot nongkrong aesthetic buat chill, nugas, dan ngobrol santai.
-              Roti bakar crispy dengan topping melimpah &amp; seduhan kopi creamy favoritmu.
-            </p>
-            <div className="hero-cta">
-              <a href="#menu" className="btn btn-primary hero-link">
-                Eksplor Menu 🚀
-              </a>
-              <span className="hero-stat">
-                ❤️ Disukai: <strong>{favorit.length}</strong> menu
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* Section Menu (SearchFilter + MenuList) */}
-        <section id="menu" className="section-block">
-          <div className="container">
-            <div className="section-header">
-              <h2>Katalog Menu Kami</h2>
-              <p>
-                Menampilkan <strong>{daftarMenuTampil.length}</strong> dari{' '}
-                {menuItems.length} pilihan menu
-              </p>
+        {/* conditional rendering: Halaman BERANDA hanya tampil saat halamanAktif === 'beranda' */}
+        {halamanAktif === 'beranda' && (
+          <section id="beranda" className="page-beranda">
+            <div className="hero-section">
+              <div className="container hero-inner">
+                <span className="hero-badge">✨ Fresh Bakes &amp; Specialty Brews ☕</span>
+                <h1>Kedai Bakar &amp; Seduh</h1>
+                <p>
+                  Spot nongkrong aesthetic buat chill, nugas, dan ngobrol santai.
+                  Roti bakar crispy dengan topping melimpah &amp; seduhan kopi creamy favoritmu.
+                </p>
+                <div className="hero-cta">
+                  <button
+                    type="button"
+                    className="btn btn-primary hero-link"
+                    onClick={() => setHalamanAktif('menu')}
+                  >
+                    Buka Katalog Menu 🚀
+                  </button>
+                  <span className="hero-stat">
+                    ❤️ Disukai: <strong>{favorit.length}</strong> menu
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* props: mengirim nilai state dan handler pencarian/filter/urutan ke SearchFilter */}
-            <SearchFilter
-              keyword={keyword}
-              onKeywordChange={setKeyword}
-              kategoriAktif={kategoriAktif}
-              onKategoriChange={setKategoriAktif}
-              urutan={urutan}
-              onUrutanChange={setUrutan}
-            />
+            {/* Fitur Highlight Beranda */}
+            <div className="container beranda-highlights">
+              <div className="highlight-grid">
+                <div className="highlight-card">
+                  <div className="highlight-icon">🍞</div>
+                  <h3>Roti Bakar Signature</h3>
+                  <p>Roti tawar tebal dipanggang renyah dengan mentega gurih dan aneka topping lumer.</p>
+                </div>
+                <div className="highlight-card">
+                  <div className="highlight-icon">☕</div>
+                  <h3>Kopi Seduh Pilihan</h3>
+                  <p>Kopi susu gula aren asli dan racikan kopi hitam yang wangi untuk teman produktifmu.</p>
+                </div>
+                <div className="highlight-card">
+                  <div className="highlight-icon">🥟</div>
+                  <h3>Camilan Hangat</h3>
+                  <p>Cireng bumbu rujak, pisang goreng, dan kentang renyah yang selalu enak dicemil bareng.</p>
+                </div>
+              </div>
 
-            {/* props: mengirim daftarMenu hasil filter dan handler interaksi ke MenuList */}
-            <MenuList
-              daftarMenu={daftarMenuTampil}
-              favorit={favorit}
-              onToggleFavorit={handleToggleFavorit}
-              onTambahKeranjang={handleTambahKeranjang}
-              onToggleDetail={handleToggleDetail}
-              detailTerbuka={detailTerbuka}
-            />
-          </div>
-        </section>
-
-        {/* Section Keranjang */}
-        <section id="keranjang" className="section-block section-alt">
-          <div className="container">
-            <div className="section-header">
-              <h2>Keranjang Pesanan</h2>
-              <p>Periksa kembali daftar menu dan jumlah porsi pilihanmu.</p>
+              <div className="beranda-cta-banner">
+                <div className="cta-banner-text">
+                  <h3>Penasaran sama pilihan menunya?</h3>
+                  <p>Tersedia 15 pilihan menu makanan, minuman, dan snack yang siap disajikan!</p>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setHalamanAktif('menu')}
+                >
+                  Lihat Semua Menu
+                </button>
+              </div>
             </div>
+          </section>
+        )}
 
-            {/* props: mengirim isiKeranjang yang sudah digabung, handler jumlah/hapus, dan total harga */}
-            <Cart
-              isiKeranjang={isiKeranjangLengkap}
-              onTambahJumlah={handleTambahJumlah}
-              onKurangJumlah={handleKurangJumlah}
-              onHapus={handleHapusKeranjang}
-              total={totalHargaKeranjang}
-            />
-          </div>
-        </section>
+        {/* conditional rendering: Halaman MENU hanya tampil saat halamanAktif === 'menu' */}
+        {halamanAktif === 'menu' && (
+          <section id="menu" className="section-block">
+            <div className="container">
+              <div className="section-header section-header-with-action">
+                <div>
+                  <h2>Katalog Menu Kami</h2>
+                  <p>
+                    Menampilkan <strong>{daftarMenuTampil.length}</strong> dari{' '}
+                    {menuItems.length} pilihan menu
+                  </p>
+                </div>
+                {jumlahItemKeranjang > 0 && (
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-to-cart"
+                    onClick={() => setHalamanAktif('keranjang')}
+                  >
+                    🛒 Lihat Keranjang ({jumlahItemKeranjang})
+                  </button>
+                )}
+              </div>
+
+              {/* props: mengirim nilai state dan handler pencarian/filter/urutan ke SearchFilter */}
+              <SearchFilter
+                keyword={keyword}
+                onKeywordChange={setKeyword}
+                kategoriAktif={kategoriAktif}
+                onKategoriChange={setKategoriAktif}
+                urutan={urutan}
+                onUrutanChange={setUrutan}
+              />
+
+              {/* props: mengirim daftarMenu hasil filter dan handler interaksi ke MenuList */}
+              <MenuList
+                daftarMenu={daftarMenuTampil}
+                favorit={favorit}
+                onToggleFavorit={handleToggleFavorit}
+                onTambahKeranjang={handleTambahKeranjang}
+                onToggleDetail={handleToggleDetail}
+                detailTerbuka={detailTerbuka}
+              />
+            </div>
+          </section>
+        )}
+
+        {/* conditional rendering: Halaman KERANJANG hanya tampil saat halamanAktif === 'keranjang' */}
+        {halamanAktif === 'keranjang' && (
+          <section id="keranjang" className="section-block">
+            <div className="container">
+              <div className="section-header">
+                <h2>Keranjang Pesanan</h2>
+                <p>Periksa kembali daftar menu dan jumlah porsi pilihanmu.</p>
+              </div>
+
+              {/* props: mengirim isiKeranjang yang sudah digabung, handler jumlah/hapus, total harga, dan shortcut ke menu */}
+              <Cart
+                isiKeranjang={isiKeranjangLengkap}
+                onTambahJumlah={handleTambahJumlah}
+                onKurangJumlah={handleKurangJumlah}
+                onHapus={handleHapusKeranjang}
+                total={totalHargaKeranjang}
+                onKeMenu={() => setHalamanAktif('menu')}
+              />
+            </div>
+          </section>
+        )}
       </main>
     </div>
   )

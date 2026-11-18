@@ -2,13 +2,14 @@ import { formatRupiah } from '../data/menu.js'
 import Button from './Button.jsx'
 
 // Komponen Cart untuk menampilkan daftar belanjaan dan total harga
-// props: menerima isiKeranjang, onTambahJumlah, onKurangJumlah, onHapus, dan total
+// props: menerima isiKeranjang, onTambahJumlah, onKurangJumlah, onHapus, total, dan onKeMenu
 function Cart({
   isiKeranjang,
   onTambahJumlah,
   onKurangJumlah,
   onHapus,
   total,
+  onKeMenu,
 }) {
   // conditional rendering: jika isiKeranjang kosong, tampilkan pesan Keranjang masih kosong
   if (isiKeranjang.length === 0) {
@@ -16,8 +17,17 @@ function Cart({
       <div className="cart-box empty-state">
         <p className="empty-title">Keranjang masih kosong</p>
         <p className="empty-subtitle">
-          Silakan pilih menu favoritmu di bagian daftar menu di atas.
+          Yuk eksplor dan pilih menu favoritmu di katalog menu!
         </p>
+        {onKeMenu && (
+          <div style={{ marginTop: '16px' }}>
+            <Button
+              label="Buka Katalog Menu 🚀"
+              variant="primary"
+              onClick={onKeMenu}
+            />
+          </div>
+        )}
       </div>
     )
   }
@@ -75,8 +85,17 @@ function Cart({
       </div>
 
       <div className="cart-summary">
-        <span>Total Harga Pesanan</span>
-        <strong className="cart-total-amount">{formatRupiah(total)}</strong>
+        {onKeMenu && (
+          <Button
+            label="← Tambah Menu Lainnya"
+            variant="secondary"
+            onClick={onKeMenu}
+          />
+        )}
+        <div className="cart-total-box">
+          <span>Total Harga:</span>
+          <strong className="cart-total-amount">{formatRupiah(total)}</strong>
+        </div>
       </div>
     </div>
   )
