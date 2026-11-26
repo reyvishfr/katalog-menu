@@ -1,4 +1,4 @@
-# Katalog Menu — Kedai Bakar & Seduh 🍞☕
+# Katalog Menu - Kedai Bakar & Seduh 🍞☕
 
 Aplikasi web interaktif katalog menu makanan, minuman, dan camilan untuk **Kedai Bakar & Seduh**. Dibuat menggunakan **React + Vite (JavaScript & JSX)** sebagai tugas mata kuliah *Component-Based UI Development*.
 
@@ -30,15 +30,3 @@ Aplikasi web interaktif katalog menu makanan, minuman, dan camilan untuk **Kedai
    npm run dev
    ```
 4. Buka URL lokal yang tampil di terminal (misalnya `http://localhost:5173`) melalui browser.
-
-## Langkah Publikasi ke Website Pribadi
-
-Proyek ini telah dikonfigurasi dengan `base: './'` pada `vite.config.js` sehingga aset hasil build menggunakan path relatif dan dapat berjalan di dalam subfolder (*subpath*) website pribadi.
-
-1. Jalankan perintah build produksi:
-   ```bash
-   npm run build
-   ```
-2. Perintah di atas akan menghasilkan folder `dist/` yang berisi file `index.html` dan folder `assets/`.
-3. Upload seluruh isi di dalam folder `dist/` ke subfolder pada repositori atau hosting website pribadi (misalnya ke folder `/katalog-menu/`).
-4. Tambahkan tautan (link) menuju subfolder aplikasi tersebut (contoh: `https://domain-kamu.com/katalog-menu/`) pada halaman utama website pribadi.
