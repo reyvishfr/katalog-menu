@@ -2,7 +2,7 @@
 
 Aplikasi web interaktif katalog menu makanan, minuman, dan camilan untuk **Kedai Bakar & Seduh**. Dibuat menggunakan **React + Vite (JavaScript & JSX)** sebagai tugas mata kuliah *Component-Based UI Development*.
 
-## Link Website: katalog-menu.rf.gd
+## Link Website: https://katalog-menu.rf.gd/ 
 
 ## Identitas Mahasiswa
 - **Nama:** Reyvianti Shafira
