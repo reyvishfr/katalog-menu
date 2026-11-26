@@ -7,10 +7,11 @@ function Navbar({ jumlahKeranjang, halamanAktif, onGantiHalaman }) {
         <div className="navbar-brand">
           <button
             type="button"
-            className="brand-title brand-button"
+            className="brand-button"
             onClick={() => onGantiHalaman('beranda')}
           >
-            🍞 Kedai Bakar &amp; Seduh
+            <span className="brand-icon">🍞</span>
+            <span className="brand-name">Kedai Bakar &amp; Seduh</span>
           </button>
           <span className="brand-student">
             Reyvianti Shafira &bull; 1247050021

@@ -6,7 +6,7 @@ import MenuList from './components/MenuList.jsx'
 import Cart from './components/Cart.jsx'
 
 function App() {
-  // state: pengelolaan state utama aplikasi di App.jsx menggunakan useState
+  // state: 6 state utama aplikasi disimpan di App.jsx menggunakan useState
   const [halamanAktif, setHalamanAktif] = useState('beranda') // 'beranda' | 'menu' | 'keranjang'
   const [keyword, setKeyword] = useState('')
   const [kategoriAktif, setKategoriAktif] = useState('Semua')
@@ -132,59 +132,21 @@ function App() {
           <section id="beranda" className="page-beranda">
             <div className="hero-section">
               <div className="container hero-inner">
-                <span className="hero-badge">✨ Fresh Bakes &amp; Specialty Brews ☕</span>
+                <span className="hero-tag">Kedai Roti Bakar &amp; Kopi</span>
                 <h1>Kedai Bakar &amp; Seduh</h1>
                 <p>
-                  Spot nongkrong aesthetic buat chill, nugas, dan ngobrol santai.
-                  Roti bakar crispy dengan topping melimpah &amp; seduhan kopi creamy favoritmu.
+                  Sajian roti bakar hangat renyah dengan aneka isian gurih manis, serta seduhan
+                  kopi pilihan. Dibuat fresh setiap hari untuk menemani waktu santai Anda.
                 </p>
                 <div className="hero-cta">
                   <button
                     type="button"
-                    className="btn btn-primary hero-link"
+                    className="btn btn-primary"
                     onClick={() => setHalamanAktif('menu')}
                   >
-                    Buka Katalog Menu 🚀
+                    Lihat Menu
                   </button>
-                  <span className="hero-stat">
-                    ❤️ Disukai: <strong>{favorit.length}</strong> menu
-                  </span>
                 </div>
-              </div>
-            </div>
-
-            {/* Fitur Highlight Beranda */}
-            <div className="container beranda-highlights">
-              <div className="highlight-grid">
-                <div className="highlight-card">
-                  <div className="highlight-icon">🍞</div>
-                  <h3>Roti Bakar Signature</h3>
-                  <p>Roti tawar tebal dipanggang renyah dengan mentega gurih dan aneka topping lumer.</p>
-                </div>
-                <div className="highlight-card">
-                  <div className="highlight-icon">☕</div>
-                  <h3>Kopi Seduh Pilihan</h3>
-                  <p>Kopi susu gula aren asli dan racikan kopi hitam yang wangi untuk teman produktifmu.</p>
-                </div>
-                <div className="highlight-card">
-                  <div className="highlight-icon">🥟</div>
-                  <h3>Camilan Hangat</h3>
-                  <p>Cireng bumbu rujak, pisang goreng, dan kentang renyah yang selalu enak dicemil bareng.</p>
-                </div>
-              </div>
-
-              <div className="beranda-cta-banner">
-                <div className="cta-banner-text">
-                  <h3>Penasaran sama pilihan menunya?</h3>
-                  <p>Tersedia 15 pilihan menu makanan, minuman, dan snack yang siap disajikan!</p>
-                </div>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => setHalamanAktif('menu')}
-                >
-                  Lihat Semua Menu
-                </button>
               </div>
             </div>
           </section>
@@ -196,7 +158,7 @@ function App() {
             <div className="container">
               <div className="section-header section-header-with-action">
                 <div>
-                  <h2>Katalog Menu Kami</h2>
+                  <h2>Katalog Menu</h2>
                   <p>
                     Menampilkan <strong>{daftarMenuTampil.length}</strong> dari{' '}
                     {menuItems.length} pilihan menu
@@ -205,10 +167,10 @@ function App() {
                 {jumlahItemKeranjang > 0 && (
                   <button
                     type="button"
-                    className="btn btn-primary btn-to-cart"
+                    className="btn btn-secondary btn-to-cart"
                     onClick={() => setHalamanAktif('keranjang')}
                   >
-                    🛒 Lihat Keranjang ({jumlahItemKeranjang})
+                    Keranjang ({jumlahItemKeranjang})
                   </button>
                 )}
               </div>
@@ -242,7 +204,7 @@ function App() {
             <div className="container">
               <div className="section-header">
                 <h2>Keranjang Pesanan</h2>
-                <p>Periksa kembali daftar menu dan jumlah porsi pilihanmu.</p>
+                <p>Daftar pesanan menu pilihan Anda.</p>
               </div>
 
               {/* props: mengirim isiKeranjang yang sudah digabung, handler jumlah/hapus, total harga, dan shortcut ke menu */}

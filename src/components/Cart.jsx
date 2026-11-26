@@ -14,15 +14,15 @@ function Cart({
   // conditional rendering: jika isiKeranjang kosong, tampilkan pesan Keranjang masih kosong
   if (isiKeranjang.length === 0) {
     return (
-      <div className="cart-box empty-state">
-        <p className="empty-title">Keranjang masih kosong</p>
+      <div className="cart-card empty-state">
+        <p className="empty-title">Keranjang Anda masih kosong</p>
         <p className="empty-subtitle">
-          Yuk eksplor dan pilih menu favoritmu di katalog menu!
+          Pilih menu makanan atau minuman dari katalog untuk menambahkannya ke sini.
         </p>
         {onKeMenu && (
-          <div style={{ marginTop: '16px' }}>
+          <div className="empty-action">
             <Button
-              label="Buka Katalog Menu 🚀"
+              label="Buka Katalog Menu"
               variant="primary"
               onClick={onKeMenu}
             />
@@ -33,26 +33,26 @@ function Cart({
   }
 
   return (
-    <div className="cart-box">
+    <div className="cart-card">
       <div className="cart-list">
         {/* list rendering: merender setiap item di keranjang dengan map() dan key={item.id} */}
         {isiKeranjang.map((item) => {
           const subtotal = item.harga * item.jumlah
 
           return (
-            <div key={item.id} className="cart-item">
-              <div className="cart-item-info">
-                <span className="cart-emoji" aria-hidden="true">
+            <div key={item.id} className="cart-row">
+              <div className="cart-item-details">
+                <span className="cart-item-icon" aria-hidden="true">
                   {item.emoji}
                 </span>
                 <div>
-                  <h4 className="cart-item-title">{item.nama}</h4>
-                  <p className="cart-item-price">{formatRupiah(item.harga)} / porsi</p>
+                  <h4 className="cart-item-name">{item.nama}</h4>
+                  <p className="cart-item-unit-price">{formatRupiah(item.harga)}</p>
                 </div>
               </div>
 
-              <div className="cart-item-controls">
-                <div className="qty-control">
+              <div className="cart-item-actions">
+                <div className="qty-picker">
                   {/* conditional rendering: tombol kurang (-) disabled jika jumlah sudah 1 */}
                   <Button
                     label="-"
@@ -60,7 +60,7 @@ function Cart({
                     disabled={item.jumlah <= 1}
                     onClick={() => onKurangJumlah(item.id)}
                   />
-                  <span className="qty-number">{item.jumlah}</span>
+                  <span className="qty-val">{item.jumlah}</span>
                   <Button
                     label="+"
                     variant="secondary"
@@ -68,9 +68,9 @@ function Cart({
                   />
                 </div>
 
-                <div className="cart-item-subtotal">
-                  <span>Subtotal:</span>
-                  <strong>{formatRupiah(subtotal)}</strong>
+                <div className="cart-item-subtotal-box">
+                  <span className="subtotal-label">Subtotal</span>
+                  <strong className="subtotal-value">{formatRupiah(subtotal)}</strong>
                 </div>
 
                 <Button
@@ -84,17 +84,17 @@ function Cart({
         })}
       </div>
 
-      <div className="cart-summary">
+      <div className="cart-footer">
         {onKeMenu && (
           <Button
-            label="← Tambah Menu Lainnya"
+            label="← Tambah Menu Lain"
             variant="secondary"
             onClick={onKeMenu}
           />
         )}
-        <div className="cart-total-box">
-          <span>Total Harga:</span>
-          <strong className="cart-total-amount">{formatRupiah(total)}</strong>
+        <div className="cart-total-group">
+          <span className="total-label">Total Pembayaran:</span>
+          <strong className="total-value">{formatRupiah(total)}</strong>
         </div>
       </div>
     </div>

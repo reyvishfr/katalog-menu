@@ -26,3 +26,4 @@ function MenuDetail({ menu }) {
 }
 
 export default MenuDetail
+
