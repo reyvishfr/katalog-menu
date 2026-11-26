@@ -969,24 +969,135 @@ main {
 }
 
 /* ========================================================
-   SITE FOOTER (Subtle & Clean)
+   ABOUT CARD & IDENTITAS PENGEMBANG
    ======================================================== */
-.site-footer {
-  background-color: var(--bg-subtle);
-  border-top: 1px solid var(--border-light);
-  padding: 16px 0;
-  text-align: center;
-  margin-top: auto;
+.about-container {
+  margin-top: 36px;
+  margin-bottom: 20px;
 }
 
-.footer-text {
+.about-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+@media (min-width: 768px) {
+  .about-card {
+    grid-template-columns: 1.4fr 1fr;
+    padding: 30px;
+    gap: 32px;
+  }
+}
+
+.about-info h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.about-info p {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.about-profile {
+  background-color: #faf6f0;
+  border: 1px solid #ebdcd0;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  align-self: center;
+}
+
+.about-profile h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.about-profile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.about-profile li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-main);
+}
+
+@media (min-width: 480px) {
+  .about-profile li {
+    flex-direction: row;
+    gap: 6px;
+  }
+}
+
+.about-profile li span {
+  color: var(--text-muted);
+  min-width: 105px;
+}
+
+.about-profile li strong {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+/* ========================================================
+   SITE FOOTER (Dark Roasted Coffee / Warm Chestnut)
+   ======================================================== */
+.footer-dark {
+  background-color: #241810;
+  color: #f7efe7;
+  padding: 30px 0;
+  margin-top: auto;
+  text-align: center;
+}
+
+.footer-dark-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-dark-brand {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #f7efe7;
+  letter-spacing: -0.01em;
+}
+
+.footer-dark-author {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #ebdcd0;
+}
+
+.footer-dark-author strong {
+  color: #ffffff;
+}
+
+.footer-dark-campus {
   margin: 0;
   font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.footer-text strong {
-  color: var(--text-main);
-  font-weight: 600;
+  color: #baab9e;
 }

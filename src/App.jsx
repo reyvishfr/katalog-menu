@@ -183,6 +183,44 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {/* Bagian Tentang Kedai & Identitas Pengembang (Sesuai Ketentuan Tugas) */}
+            <div className="container about-container">
+              <div className="about-card">
+                <div className="about-info">
+                  <h2>Tentang Kedai Bakar &amp; Seduh</h2>
+                  <p>
+                    <strong>Kedai Bakar &amp; Seduh</strong> adalah kedai roti bakar
+                    dan kopi fiktif yang menghadirkan suasana santai dengan menu
+                    andalan roti panggang klasik, kopi susu gula aren, serta
+                    camilan hangat yang ramah di kantong mahasiswa.
+                  </p>
+                  <p>
+                    Aplikasi katalog menu interaktif ini dikembangkan menggunakan
+                    React dan Vite untuk memenuhi tugas mata kuliah{' '}
+                    <em>Component-Based UI Development</em>.
+                  </p>
+                </div>
+
+                <div className="about-profile">
+                  <h3>Identitas Pengembang</h3>
+                  <ul>
+                    <li>
+                      <span>Nama:</span> <strong>Reyvianti Shafira</strong>
+                    </li>
+                    <li>
+                      <span>NIM:</span> <strong>1247050021</strong>
+                    </li>
+                    <li>
+                      <span>Program Studi:</span>{' '}
+                      <strong>
+                        Teknik Informatika, UIN Sunan Gunung Djati Bandung
+                      </strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </section>
         )}
 
