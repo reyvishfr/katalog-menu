@@ -1,51 +1,49 @@
 /* ========================================================
-   MODERN GEN Z CAFE WEB UI (Fresh, Energetic, Appetizing)
-   Inspirasi: Fore Coffee, Haus, Kopi Kenangan, GoFood/GrabFood
+   WARM & CALM CAFE PALETTE (Tidak Terlalu Terang & Nyaman di Mata)
+   Inspirasi: Aesthetic coffee shop, hangat, lembut, dan elegan
    ======================================================== */
 :root {
-  --bg-page: #fbf9f5;
+  --bg-page: #f8f6f2;
   --bg-surface: #ffffff;
-  --bg-card: #ffffff;
-  --bg-subtle: #f5efe6;
-  --bg-pill: #f0e9df;
+  --bg-subtle: #f0ebe2;
+  --bg-pill: #ece6dc;
+  --bg-emoji-box: #f4eee5;
 
-  /* Typography Colors */
-  --text-main: #1e1b18;
-  --text-muted: #6b635b;
-  --text-subtle: #968c82;
+  /* Typography Colors (Soft, High Contrast, Low Eye-Strain) */
+  --text-main: #231f1c;
+  --text-muted: #5e5751;
+  --text-subtle: #8a827a;
 
-  /* Brand Sunset Tangerine & Warm Caramel */
-  --brand-primary: #ff5722;
-  --brand-primary-hover: #ea4512;
-  --brand-gradient: linear-gradient(135deg, #ff6a3d 0%, #ff4b1f 100%);
-  --brand-glow: 0 4px 16px rgba(255, 87, 34, 0.35);
+  /* Calming Warm Roasted Chestnut / Caramel (Not harsh/bright neon) */
+  --brand-primary: #8c4a24;
+  --brand-primary-hover: #753b1a;
 
-  --border-light: #ece4d8;
-  --border-card: #ebe3d7;
-  --border-focus: #ff5722;
+  --border-light: #e5ded4;
+  --border-card: #e5dfd6;
+  --border-focus: #8c4a24;
 
-  /* Status Badges */
-  --badge-popular-bg: #fff8eb;
-  --badge-popular-border: #fed7aa;
-  --badge-popular-text: #b45309;
+  /* Soft, Calming Badges */
+  --badge-popular-bg: #fcf3e3;
+  --badge-popular-border: #f4dfb8;
+  --badge-popular-text: #8d4d12;
 
-  --badge-habis-bg: #f3f4f6;
-  --badge-habis-border: #e5e7eb;
-  --badge-habis-text: #6b7280;
+  --badge-habis-bg: #eeebe7;
+  --badge-habis-border: #dfdbd5;
+  --badge-habis-text: #6e6761;
 
-  --badge-cart-bg: #ecfdf5;
-  --badge-cart-border: #a7f3d0;
-  --badge-cart-text: #059669;
+  --badge-cart-bg: #eef7f1;
+  --badge-cart-border: #c8e8d2;
+  --badge-cart-text: #1d6a36;
 
   /* Radius & Shadows */
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 18px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 6px rgba(30, 27, 24, 0.04);
-  --shadow-card: 0 4px 16px rgba(30, 27, 24, 0.05);
-  --shadow-card-hover: 0 12px 28px rgba(255, 87, 34, 0.12), 0 4px 12px rgba(30, 27, 24, 0.04);
+  --shadow-sm: 0 1px 4px rgba(35, 31, 28, 0.04);
+  --shadow-card: 0 3px 12px rgba(35, 31, 28, 0.04);
+  --shadow-card-hover: 0 8px 20px rgba(35, 31, 28, 0.07);
 }
 
 * {
@@ -86,7 +84,7 @@ main {
 }
 
 /* ========================================================
-   TOAST NOTIFICATION BANNER
+   TOAST NOTIFICATION (Calm Floating Pill)
    ======================================================== */
 .toast-banner {
   position: fixed;
@@ -94,20 +92,33 @@ main {
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
-  background-color: #1e1b18;
+  background-color: #231f1c;
   color: #ffffff;
   padding: 10px 22px;
   border-radius: var(--radius-full);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   animation: slideUpToast 0.25s ease-out;
   max-width: 90vw;
   text-align: center;
+}
+
+.toast-icon {
+  background-color: #2e7d47;
+  color: #ffffff;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 @keyframes slideUpToast {
@@ -121,58 +132,29 @@ main {
   }
 }
 
-.toast-icon {
-  background-color: #10b981;
-  color: #ffffff;
-  width: 22px;
-  height: 22px;
-  border-radius: var(--radius-full);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -15px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
 /* ========================================================
-   NAVBAR (Clean, Crisp, Modern Header)
+   NAVBAR (Clean, Minimal, Solid)
    ======================================================== */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #ffffff;
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 2px 10px rgba(30, 27, 24, 0.03);
+  box-shadow: 0 1px 4px rgba(35, 31, 28, 0.03);
 }
 
 .navbar-inner {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  gap: 10px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .navbar-brand {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 .brand-button {
@@ -188,24 +170,14 @@ main {
 }
 
 .brand-icon {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   line-height: 1;
 }
 
 .brand-name {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.brand-student {
-  font-size: 0.8rem;
-  color: #c2410c;
-  background-color: #fff7ed;
-  border: 1px solid #fed7aa;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
+  font-size: 1.15rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .navbar-links {
@@ -223,12 +195,12 @@ main {
   font-size: 0.92rem;
   font-family: inherit;
   cursor: pointer;
-  padding: 8px 16px;
-  min-height: 40px;
+  padding: 7px 16px;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
   border-radius: var(--radius-full);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .nav-btn:hover {
@@ -237,10 +209,9 @@ main {
 }
 
 .nav-btn.active {
-  background-color: var(--text-main);
+  background-color: #231f1c;
   color: #ffffff;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(30, 27, 24, 0.15);
+  font-weight: 600;
 }
 
 .nav-cart-btn {
@@ -249,10 +220,10 @@ main {
 }
 
 .cart-badge {
-  background: var(--brand-gradient);
+  background-color: var(--brand-primary);
   color: #ffffff;
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 700;
   min-width: 20px;
   height: 20px;
   padding: 0 6px;
@@ -260,12 +231,11 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(255, 87, 34, 0.35);
 }
 
 .nav-btn.active .cart-badge {
-  background: #ffffff;
-  color: var(--brand-primary);
+  background-color: #ffffff;
+  color: #231f1c;
 }
 
 @media (min-width: 720px) {
@@ -277,52 +247,49 @@ main {
 }
 
 /* ========================================================
-   HERO / BERANDA (Aesthetic F&B Warm Showcase)
+   HERO / BERANDA (Warm, Soothing, Inviting)
    ======================================================== */
 .page-beranda {
   padding-top: 28px;
 }
 
 .hero-banner {
-  background: radial-gradient(circle at 90% 10%, rgba(255, 106, 61, 0.15) 0%, transparent 60%),
-              radial-gradient(circle at 10% 90%, rgba(254, 215, 170, 0.25) 0%, transparent 50%),
-              #ffffff;
-  border: 1.5px solid var(--border-card);
+  background-color: #f3ece2;
+  border: 1px solid #e5ded2;
   border-radius: var(--radius-lg);
   padding: 56px 24px;
-  box-shadow: var(--shadow-card);
   text-align: center;
 }
 
 .hero-content {
-  max-width: 680px;
+  max-width: 660px;
   margin: 0 auto;
 }
 
 .hero-badge-pill {
   display: inline-block;
-  background-color: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #c2410c;
+  background-color: #fbf7f1;
+  border: 1px solid #e6ded3;
+  color: #8c4a24;
   font-size: 0.82rem;
   font-weight: 700;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: 0.02em;
 }
 
 .hero-title {
-  font-size: 2.4rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--text-main);
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .hero-desc {
-  margin: 0 auto 24px;
+  margin: 0 auto 22px;
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.6;
@@ -333,14 +300,14 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .perk-pill {
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border-light);
+  background-color: #ffffff;
+  border: 1px solid #e4ddd3;
   color: var(--text-main);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   padding: 6px 14px;
   border-radius: var(--radius-full);
@@ -354,8 +321,8 @@ main {
 }
 
 .btn-hero {
-  padding: 12px 28px;
-  font-size: 1rem;
+  padding: 11px 26px;
+  font-size: 0.98rem;
   border-radius: var(--radius-full);
 }
 
@@ -372,8 +339,8 @@ main {
 
 .section-subtag {
   display: inline-block;
-  font-size: 0.76rem;
-  font-weight: 800;
+  font-size: 0.74rem;
+  font-weight: 700;
   color: var(--brand-primary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -390,7 +357,7 @@ main {
 
 .section-header h2 {
   margin: 0 0 4px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-main);
@@ -404,12 +371,12 @@ main {
 
 .btn-to-cart-top {
   border-radius: var(--radius-full);
-  padding: 10px 18px;
-  font-size: 0.9rem;
+  padding: 9px 18px;
+  font-size: 0.88rem;
 }
 
 /* ========================================================
-   CATEGORY PILLS BAR (Ala Aplikasi Kuliner Modern)
+   CATEGORY PILLS BAR (Calm & Clear Tabs)
    ======================================================== */
 .category-pills-bar {
   display: flex;
@@ -419,10 +386,10 @@ main {
 }
 
 .cat-pill-btn {
-  background-color: var(--bg-surface);
-  border: 1.5px solid var(--border-light);
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
   color: var(--text-muted);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9rem;
   font-family: inherit;
   cursor: pointer;
@@ -431,22 +398,19 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s ease;
   box-shadow: var(--shadow-sm);
 }
 
 .cat-pill-btn:hover {
   background-color: var(--bg-subtle);
   color: var(--text-main);
-  border-color: #d8cebf;
 }
 
 .cat-pill-btn.active {
-  background: var(--brand-gradient);
+  background-color: #231f1c;
   color: #ffffff;
-  border-color: transparent;
-  box-shadow: var(--brand-glow);
-  transform: translateY(-1px);
+  border-color: #231f1c;
 }
 
 .cat-pill-icon {
@@ -482,34 +446,32 @@ main {
 
 .filter-group label {
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-main);
 }
 
 .filter-group input,
 .filter-group select {
   width: 100%;
-  min-height: 42px;
-  padding: 8px 14px;
-  border: 1.5px solid var(--border-light);
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  background-color: #fcfbfa;
+  background-color: #ffffff;
   color: var(--text-main);
   font-size: 0.92rem;
   font-family: inherit;
-  transition: all 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .filter-group input:focus,
 .filter-group select:focus {
   outline: none;
   border-color: var(--border-focus);
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
 }
 
 /* ========================================================
-   MENU GRID & CARDS (Vibrant Food Cards)
+   MENU GRID & CARDS (Warm & Tasteful)
    ======================================================== */
 .menu-grid {
   display: grid;
@@ -531,26 +493,25 @@ main {
 
 .menu-card {
   background-color: var(--bg-surface);
-  border: 1.5px solid var(--border-card);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   padding: 18px;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   position: relative;
 }
 
 .menu-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-card-hover);
-  border-color: #fed7aa;
 }
 
 .menu-card-habis {
-  background-color: #fbfaf8;
-  opacity: 0.85;
+  background-color: #faf8f5;
+  opacity: 0.82;
 }
 
 .card-top {
@@ -569,10 +530,10 @@ main {
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
@@ -601,47 +562,40 @@ main {
 }
 
 .btn-favorit {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border-light);
+  border: 1px solid var(--border-light);
   background-color: #ffffff;
   cursor: pointer;
-  font-size: 1.05rem;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   flex-shrink: 0;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .btn-favorit:hover {
   background-color: #fff1f2;
-  border-color: #fecdd3;
-  transform: scale(1.08);
 }
 
 .btn-favorit.aktif {
-  border-color: #fb7185;
+  border-color: #fca5a5;
   background-color: #fff1f2;
 }
 
 .card-emoji-box {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border: 1px solid #feeedd;
+  background-color: var(--bg-emoji-box);
+  border: 1px solid #ebe5dc;
   border-radius: var(--radius-md);
   padding: 22px 0;
   text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.menu-card:hover .card-emoji-box {
-  transform: scale(1.02);
 }
 
 .card-emoji {
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 1;
   display: inline-block;
 }
@@ -655,8 +609,8 @@ main {
 
 .card-title {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   line-height: 1.35;
   color: var(--text-main);
   letter-spacing: -0.01em;
@@ -664,8 +618,8 @@ main {
 
 .card-price {
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--brand-primary);
   font-feature-settings: 'tnum';
 }
@@ -673,13 +627,13 @@ main {
 .card-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* Detail Menu */
 .menu-detail {
   margin-top: 4px;
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px dashed var(--border-light);
   font-size: 0.88rem;
 }
@@ -709,37 +663,37 @@ main {
 }
 
 .status-tersedia {
-  color: #059669;
-  font-weight: 700;
+  color: #166534;
+  font-weight: 600;
 }
 
 .status-habis {
-  color: #dc2626;
-  font-weight: 700;
+  color: #991b1b;
+  font-weight: 600;
 }
 
 /* ========================================================
-   BUTTONS (Modern & Satisfying Clicks)
+   BUTTONS (Comfortable & Clean)
    ======================================================== */
 .btn {
-  min-height: 42px;
-  padding: 9px 16px;
+  min-height: 40px;
+  padding: 8px 16px;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s ease;
   text-decoration: none;
   user-select: none;
 }
 
 .btn:active:not(:disabled) {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .btn:disabled {
@@ -748,15 +702,12 @@ main {
 }
 
 .btn-primary {
-  background: var(--brand-gradient);
+  background-color: var(--brand-primary);
   color: #ffffff;
-  box-shadow: var(--brand-glow);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #ff7a4f 0%, #ea3b0e 100%);
-  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.45);
-  transform: translateY(-1px);
+  background-color: var(--brand-primary-hover);
 }
 
 .btn-secondary {
@@ -766,21 +717,21 @@ main {
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #ece4d7;
+  background-color: #e6dfd5;
 }
 
 .btn-danger {
-  background-color: #fee2e2;
-  color: #dc2626;
-  border-color: #fecaca;
+  background-color: #fbeae8;
+  color: #b91c1c;
+  border-color: #f7cfcb;
 }
 
 .btn-danger:hover:not(:disabled) {
-  background-color: #fecaca;
+  background-color: #f7cfcb;
 }
 
 /* ========================================================
-   FLOATING CART BOTTOM BAR (Ala GoFood / GrabFood)
+   FLOATING CART BOTTOM BAR
    ======================================================== */
 .floating-cart-bar {
   position: fixed;
@@ -788,25 +739,25 @@ main {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 40px);
-  max-width: 600px;
+  max-width: 560px;
   z-index: 90;
-  background-color: #1e1b18;
+  background-color: #231f1c;
   color: #ffffff;
   border-radius: var(--radius-full);
-  padding: 12px 16px 12px 24px;
+  padding: 10px 14px 10px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.25s ease-out;
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translate(-50%, 25px);
+    transform: translate(-50%, 20px);
   }
   to {
     opacity: 1;
@@ -820,32 +771,31 @@ main {
 }
 
 .floating-cart-count {
-  font-size: 0.8rem;
-  color: #fed7aa;
-  font-weight: 700;
+  font-size: 0.78rem;
+  color: #d6cecb;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .floating-cart-price {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #ffffff;
 }
 
 .btn-floating-action {
-  background: var(--brand-gradient);
+  background-color: var(--brand-primary);
   color: #ffffff;
   border: none;
-  font-weight: 800;
-  padding: 10px 22px;
+  font-weight: 700;
+  padding: 9px 20px;
   border-radius: var(--radius-full);
-  font-size: 0.95rem;
-  box-shadow: var(--brand-glow);
+  font-size: 0.92rem;
 }
 
 .btn-floating-action:hover {
-  transform: scale(1.03);
+  background-color: var(--brand-primary-hover);
 }
 
 /* ========================================================
@@ -853,7 +803,7 @@ main {
    ======================================================== */
 .empty-state {
   background-color: var(--bg-surface);
-  border: 1.5px dashed var(--border-light);
+  border: 1px dashed var(--border-card);
   border-radius: var(--radius-md);
   padding: 44px 20px;
   text-align: center;
@@ -861,19 +811,19 @@ main {
 
 .empty-title {
   margin: 0 0 6px;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--text-main);
 }
 
 .empty-subtitle {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .empty-action {
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 /* ========================================================
@@ -881,9 +831,9 @@ main {
    ======================================================== */
 .cart-card {
   background-color: var(--bg-surface);
-  border: 1.5px solid var(--border-card);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  padding: 22px;
+  padding: 20px;
   box-shadow: var(--shadow-card);
 }
 
@@ -895,7 +845,7 @@ main {
 .cart-row {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   padding: 16px 0;
   border-bottom: 1px solid var(--border-light);
 }
@@ -915,22 +865,22 @@ main {
 }
 
 .cart-item-icon {
-  font-size: 2rem;
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  background-color: var(--bg-emoji-box);
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid #feeedd;
+  border: 1px solid #ebe5dc;
 }
 
 .cart-item-name {
   margin: 0 0 2px;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .cart-item-unit-price {
@@ -954,44 +904,44 @@ main {
   background-color: var(--bg-page);
   padding: 3px 6px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border-light);
+  border: 1px solid var(--border-light);
 }
 
 .qty-picker .btn {
-  min-width: 32px;
-  height: 32px;
+  min-width: 30px;
+  height: 30px;
   padding: 0;
 }
 
 .qty-val {
-  min-width: 28px;
+  min-width: 26px;
   text-align: center;
-  font-weight: 800;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .cart-item-subtotal-box {
   display: flex;
   flex-direction: column;
-  min-width: 110px;
+  min-width: 100px;
 }
 
 .subtotal-label {
   font-size: 0.72rem;
   color: var(--text-subtle);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .subtotal-value {
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-main);
 }
 
 .cart-footer {
-  margin-top: 20px;
-  padding-top: 18px;
+  margin-top: 18px;
+  padding-top: 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1002,17 +952,17 @@ main {
 .cart-total-group {
   display: flex;
   align-items: baseline;
-  gap: 10px;
-  font-size: 1.05rem;
+  gap: 8px;
+  font-size: 1rem;
 }
 
 .total-label {
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .total-value {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--brand-primary);
   font-feature-settings: 'tnum';

@@ -1,4 +1,4 @@
-// Komponen Navbar untuk navigasi halaman dan identitas mahasiswa
+// Komponen Navbar untuk navigasi halaman
 // props: menerima jumlahKeranjang, halamanAktif, dan onGantiHalaman dari App.jsx
 function Navbar({ jumlahKeranjang, halamanAktif, onGantiHalaman }) {
   return (
@@ -13,9 +13,6 @@ function Navbar({ jumlahKeranjang, halamanAktif, onGantiHalaman }) {
             <span className="brand-icon">🍞</span>
             <span className="brand-name">Kedai Bakar &amp; Seduh</span>
           </button>
-          <span className="brand-student">
-            Reyvianti Shafira &bull; 1247050021
-          </span>
         </div>
 
         <nav className="navbar-links" aria-label="Navigasi Utama">
