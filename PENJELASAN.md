@@ -1,10 +1,4 @@
-# Penjelasan Konsep React — Katalog Menu Kedai Bakar & Seduh
-
-**Nama:** Reyvianti Shafira  
-**NIM:** 1247050021  
-**Program Studi:** Teknik Informatika, UIN Sunan Gunung Djati Bandung  
-
----
+# Penjelasan Konsep React - Katalog Menu Kedai Bakar & Seduh
 
 ## 1. Daftar Komponen dan Fungsinya
 
