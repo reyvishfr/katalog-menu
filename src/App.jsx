@@ -184,9 +184,9 @@ function App() {
               </div>
             </div>
 
-            {/* Bagian Tentang Kedai & Identitas Pengembang (Sesuai Ketentuan Tugas) */}
+            {/* Bagian Tentang Kedai Bakar & Seduh */}
             <div className="container about-container">
-              <div className="about-card">
+              <div className="about-card about-card-single">
                 <div className="about-info">
                   <h2>Tentang Kedai Bakar &amp; Seduh</h2>
                   <p>
@@ -196,28 +196,8 @@ function App() {
                     camilan hangat yang ramah di kantong mahasiswa.
                   </p>
                   <p>
-                    Aplikasi katalog menu interaktif ini dikembangkan menggunakan
-                    React dan Vite untuk memenuhi tugas mata kuliah{' '}
-                    <em>Component-Based UI Development</em>.
+                    Dengan suasana yang nyaman dan harga yang bersahabat, kami ingin setiap sudut kedai menjadi ruang favorit untuk beristirahat sejenak, bertukar cerita, maupun menemani waktu nugasmu.
                   </p>
-                </div>
-
-                <div className="about-profile">
-                  <h3>Identitas Pengembang</h3>
-                  <ul>
-                    <li>
-                      <span>Nama:</span> <strong>Reyvianti Shafira</strong>
-                    </li>
-                    <li>
-                      <span>NIM:</span> <strong>1247050021</strong>
-                    </li>
-                    <li>
-                      <span>Program Studi:</span>{' '}
-                      <strong>
-                        Teknik Informatika, UIN Sunan Gunung Djati Bandung
-                      </strong>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
