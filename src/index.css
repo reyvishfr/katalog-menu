@@ -967,3 +967,26 @@ main {
   color: var(--brand-primary);
   font-feature-settings: 'tnum';
 }
+
+/* ========================================================
+   SITE FOOTER (Subtle & Clean)
+   ======================================================== */
+.site-footer {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-light);
+  padding: 16px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.footer-text strong {
+  color: var(--text-main);
+  font-weight: 600;
+}

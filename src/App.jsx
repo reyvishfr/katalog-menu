@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx'
 import SearchFilter from './components/SearchFilter.jsx'
 import MenuList from './components/MenuList.jsx'
 import Cart from './components/Cart.jsx'
+import Footer from './components/Footer.jsx'
 
 function App() {
   // state: 6 state utama aplikasi disimpan di App.jsx menggunakan useState
@@ -273,6 +274,8 @@ function App() {
           </section>
         )}
       </main>
+
+      <Footer />
     </div>
   )
 }
