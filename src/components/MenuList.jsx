@@ -9,6 +9,7 @@ function MenuList({
   onTambahKeranjang,
   onToggleDetail,
   detailTerbuka,
+  keranjang = [],
 }) {
   // conditional rendering: jika hasil filter/pencarian kosong, tampilkan pesan
   if (daftarMenu.length === 0) {
@@ -25,20 +26,25 @@ function MenuList({
   return (
     <div className="menu-grid">
       {/* list rendering: merender daftarMenu menggunakan map() dengan key={menu.id} */}
-      {daftarMenu.map((menu) => (
-        <MenuCard
-          key={menu.id}
-          menu={menu}
-          isFavorit={favorit.includes(menu.id)}
-          onToggleFavorit={onToggleFavorit}
-          onTambahKeranjang={onTambahKeranjang}
-          onToggleDetail={onToggleDetail}
-          detailTerbuka={detailTerbuka}
-        />
-      ))}
+      {daftarMenu.map((menu) => {
+        const itemKeranjang = keranjang.find((k) => k.id === menu.id)
+        const jumlahDiKeranjang = itemKeranjang ? itemKeranjang.jumlah : 0
+
+        return (
+          <MenuCard
+            key={menu.id}
+            menu={menu}
+            isFavorit={favorit.includes(menu.id)}
+            onToggleFavorit={onToggleFavorit}
+            onTambahKeranjang={onTambahKeranjang}
+            onToggleDetail={onToggleDetail}
+            detailTerbuka={detailTerbuka}
+            jumlahDiKeranjang={jumlahDiKeranjang}
+          />
+        )
+      })}
     </div>
   )
 }
 
 export default MenuList
-

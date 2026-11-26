@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { menuItems } from './data/menu.js'
+import { formatRupiah, menuItems } from './data/menu.js'
 import Navbar from './components/Navbar.jsx'
 import SearchFilter from './components/SearchFilter.jsx'
 import MenuList from './components/MenuList.jsx'
@@ -14,6 +14,7 @@ function App() {
   const [favorit, setFavorit] = useState([])
   const [keranjang, setKeranjang] = useState([])
   const [detailTerbuka, setDetailTerbuka] = useState(null)
+  const [toastPesan, setToastPesan] = useState('')
 
   // event handling: tambah/hapus id menu dari daftar favorit
   function handleToggleFavorit(idMenu) {
@@ -41,6 +42,12 @@ function App() {
     } else {
       setKeranjang([...keranjang, { id: idMenu, jumlah: 1 }])
     }
+
+    // Tampilkan notifikasi toast langsung saat tombol Tambah diklik
+    setToastPesan(`${menuDipilih.emoji} ${menuDipilih.nama} berhasil ditambahkan!`)
+    setTimeout(() => {
+      setToastPesan('')
+    }, 2400)
   }
 
   // event handling: tambah jumlah item di keranjang
@@ -119,6 +126,14 @@ function App() {
 
   return (
     <div className="app-wrapper">
+      {/* Toast Notifikasi saat item ditambahkan */}
+      {toastPesan && (
+        <div className="toast-banner" role="status">
+          <span className="toast-icon">✓</span>
+          <span className="toast-text">{toastPesan}</span>
+        </div>
+      )}
+
       {/* props: mengirim jumlahKeranjang, halamanAktif, dan onGantiHalaman ke Navbar */}
       <Navbar
         jumlahKeranjang={jumlahItemKeranjang}
@@ -130,22 +145,40 @@ function App() {
         {/* conditional rendering: Halaman BERANDA hanya tampil saat halamanAktif === 'beranda' */}
         {halamanAktif === 'beranda' && (
           <section id="beranda" className="page-beranda">
-            <div className="hero-section">
-              <div className="container hero-inner">
-                <span className="hero-tag">Kedai Roti Bakar &amp; Kopi</span>
-                <h1>Kedai Bakar &amp; Seduh</h1>
-                <p>
-                  Sajian roti bakar hangat renyah dengan aneka isian gurih manis, serta seduhan
-                  kopi pilihan. Dibuat fresh setiap hari untuk menemani waktu santai Anda.
+            <div className="hero-banner">
+              <div className="container hero-content">
+                <span className="hero-badge-pill">🔥 Rekomendasi Menu Hangat &amp; Nikmat</span>
+                <h1 className="hero-title">
+                  Paling Pas Buat Santai &amp; Teman Nugas
+                </h1>
+                <p className="hero-desc">
+                  Nikmati kelezatan roti bakar renyah dengan aneka topping lumer, seduhan kopi segar,
+                  dan aneka camilan lezat dengan harga ramah kantong.
                 </p>
-                <div className="hero-cta">
+
+                <div className="hero-perks">
+                  <span className="perk-pill">🍞 Roti Panggang Fresh</span>
+                  <span className="perk-pill">☕ Kopi Gula Aren Asli</span>
+                  <span className="perk-pill">🥟 Camilan Renyah Gurih</span>
+                </div>
+
+                <div className="hero-cta-group">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary btn-hero"
                     onClick={() => setHalamanAktif('menu')}
                   >
-                    Lihat Menu
+                    Buka Katalog Menu ➔
                   </button>
+                  {jumlahItemKeranjang > 0 && (
+                    <button
+                      type="button"
+                      className="btn btn-secondary btn-hero"
+                      onClick={() => setHalamanAktif('keranjang')}
+                    >
+                      Lihat Keranjang ({jumlahItemKeranjang})
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -158,7 +191,8 @@ function App() {
             <div className="container">
               <div className="section-header section-header-with-action">
                 <div>
-                  <h2>Katalog Menu</h2>
+                  <span className="section-subtag">PILIHAN KEDAI</span>
+                  <h2>Katalog Menu Kami</h2>
                   <p>
                     Menampilkan <strong>{daftarMenuTampil.length}</strong> dari{' '}
                     {menuItems.length} pilihan menu
@@ -167,10 +201,10 @@ function App() {
                 {jumlahItemKeranjang > 0 && (
                   <button
                     type="button"
-                    className="btn btn-secondary btn-to-cart"
+                    className="btn btn-primary btn-to-cart-top"
                     onClick={() => setHalamanAktif('keranjang')}
                   >
-                    Keranjang ({jumlahItemKeranjang})
+                    🛒 Buka Keranjang ({jumlahItemKeranjang})
                   </button>
                 )}
               </div>
@@ -193,7 +227,25 @@ function App() {
                 onTambahKeranjang={handleTambahKeranjang}
                 onToggleDetail={handleToggleDetail}
                 detailTerbuka={detailTerbuka}
+                keranjang={keranjang}
               />
+
+              {/* Floating Bottom Cart Bar ala Aplikasi Food Delivery */}
+              {jumlahItemKeranjang > 0 && (
+                <div className="floating-cart-bar">
+                  <div className="floating-cart-text">
+                    <span className="floating-cart-count">🛍️ {jumlahItemKeranjang} Item Dipilih</span>
+                    <strong className="floating-cart-price">{formatRupiah(totalHargaKeranjang)}</strong>
+                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-floating-action"
+                    onClick={() => setHalamanAktif('keranjang')}
+                  >
+                    Buka Keranjang ➔
+                  </button>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -203,8 +255,9 @@ function App() {
           <section id="keranjang" className="section-block">
             <div className="container">
               <div className="section-header">
+                <span className="section-subtag">PESANAN ANDA</span>
                 <h2>Keranjang Pesanan</h2>
-                <p>Daftar pesanan menu pilihan Anda.</p>
+                <p>Periksa kembali daftar menu dan jumlah porsi pilihanmu.</p>
               </div>
 
               {/* props: mengirim isiKeranjang yang sudah digabung, handler jumlah/hapus, total harga, dan shortcut ke menu */}

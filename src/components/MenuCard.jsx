@@ -3,7 +3,7 @@ import Button from './Button.jsx'
 import MenuDetail from './MenuDetail.jsx'
 
 // Komponen MenuCard untuk menampilkan satu kartu menu
-// props: menerima menu, isFavorit, onToggleFavorit, onTambahKeranjang, onToggleDetail, detailTerbuka
+// props: menerima menu, isFavorit, onToggleFavorit, onTambahKeranjang, onToggleDetail, detailTerbuka, jumlahDiKeranjang
 function MenuCard({
   menu,
   isFavorit,
@@ -11,6 +11,7 @@ function MenuCard({
   onTambahKeranjang,
   onToggleDetail,
   detailTerbuka,
+  jumlahDiKeranjang = 0,
 }) {
   const apakahDetailTerbuka = detailTerbuka === menu.id
 
@@ -23,6 +24,10 @@ function MenuCard({
           {menu.populer && <span className="badge badge-populer">★ Populer</span>}
           {/* conditional rendering: tampilkan badge Habis jika menu tidak tersedia */}
           {!menu.tersedia && <span className="badge badge-habis">Habis</span>}
+          {/* conditional rendering: tampilkan indikator jika menu sudah ada di keranjang */}
+          {jumlahDiKeranjang > 0 && (
+            <span className="badge badge-in-cart">✓ {jumlahDiKeranjang} di keranjang</span>
+          )}
         </div>
 
         {/* event handling: klik tombol favorit memanggil onToggleFavorit dengan id menu */}
@@ -38,8 +43,10 @@ function MenuCard({
         </button>
       </div>
 
-      <div className="card-emoji" aria-hidden="true">
-        {menu.emoji}
+      <div className="card-emoji-box">
+        <span className="card-emoji" aria-hidden="true">
+          {menu.emoji}
+        </span>
       </div>
 
       <div className="card-body">
@@ -50,7 +57,13 @@ function MenuCard({
       <div className="card-actions">
         {/* conditional rendering: tombol Tambah dinonaktifkan (disabled) jika menu habis */}
         <Button
-          label={menu.tersedia ? '+ Tambah' : 'Habis'}
+          label={
+            !menu.tersedia
+              ? 'Habis'
+              : jumlahDiKeranjang > 0
+              ? `+ Tambah (${jumlahDiKeranjang})`
+              : '+ Tambah'
+          }
           variant="primary"
           disabled={!menu.tersedia}
           onClick={() => onTambahKeranjang(menu.id)}
@@ -69,4 +82,3 @@ function MenuCard({
 }
 
 export default MenuCard
-
